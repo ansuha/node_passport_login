@@ -32,9 +32,12 @@ app.use(express.urlencoded({ extended: true }));
 // Express session
 app.use(
   session({
-    secret: 'secret',
+    secret: "secret",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
+    },
   })
 );
 
